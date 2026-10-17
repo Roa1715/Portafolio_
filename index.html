@@ -1,6 +1,347 @@
-Robert Alejandro Jimenez Roa
-Gustos:
-Me gusta One Piece
-Me gusta Stefa
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Gracias por venir a mi portafolio <3
+    <title>Para alguien especial ❤️</title>
+
+    <style>
+        /* CONFIGURACIÓN GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #10051f, #25103d, #140b25, #310f32);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        /* CONTENEDOR */
+        .contenedor {
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: aparecer 1.5s ease;
+        }
+
+        /* TEXTO SUPERIOR */
+        .etiqueta {
+            color: #e9a9ff;
+            font-size: 12px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* TÍTULO */
+        h1 {
+            font-size: clamp(45px, 10vw, 75px);
+            font-weight: 300;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, #ffffff, #ffb8e8, #c99bff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* CORAZÓN CENTRAL */
+        .separador {
+            margin: 15px 0 30px;
+            color: #ff9bd2;
+            font-size: 30px;
+        }
+
+        .separador span {
+            display: inline-block;
+            animation: latido 1.5s infinite;
+        }
+
+        /* CARTA */
+        .carta {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 190, 245, 0.25);
+            border-radius: 25px;
+            padding: 40px 35px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 40px rgba(190, 80, 255, 0.08),
+                        0 20px 60px rgba(0, 0, 0, 0.25);
+            transition: transform 0.4s ease;
+        }
+
+        .carta:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #ffc3ed;
+            font-size: 23px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .carta p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #e6ddeb;
+            margin-bottom: 20px;
+        }
+
+        /* FRASE ESPECIAL */
+        .carta .frase {
+            color: #ffb8e8;
+            font-style: italic;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        /* FIRMA */
+        .firma {
+            margin-top: 30px;
+            color: #d7a4ff;
+            font-size: 17px;
+            letter-spacing: 1px;
+        }
+
+        /* BOTÓN */
+        .boton {
+            margin-top: 35px;
+            padding: 15px 28px;
+            background: linear-gradient(135deg, #d65db1, #9655e8);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 25px #c75aff40;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .boton:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px #d65db180;
+        }
+
+        /* SORPRESA */
+        .sorpresa {
+            display: none;
+            margin: 25px auto 0;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(255, 180, 230, 0.08);
+            border: 1px solid #ffb8e850;
+            color: #ffd2f0;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .sorpresa.visible {
+            display: block;
+            animation: aparecer 0.8s ease;
+        }
+
+        /* CORAZONES FLOTANTES */
+        .corazon {
+            position: fixed;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: flotar 7s ease-in-out infinite;
+        }
+
+        .corazon1 {
+            top: 12%;
+            left: 10%;
+            font-size: 30px;
+        }
+
+        .corazon2 {
+            top: 65%;
+            left: 7%;
+            font-size: 22px;
+            animation-delay: 1s;
+        }
+
+        .corazon3 {
+            top: 20%;
+            right: 10%;
+            font-size: 25px;
+            animation-delay: 2s;
+        }
+
+        .corazon4 {
+            bottom: 12%;
+            right: 8%;
+            font-size: 35px;
+            animation-delay: 3s;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            margin-top: 40px;
+            color: #a995b8;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* ANIMACIONES */
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(10deg);
+            }
+        }
+
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* DISEÑO PARA CELULARES */
+        @media (max-width: 600px) {
+            body {
+                padding: 35px 15px;
+            }
+
+            .etiqueta {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .carta {
+                padding: 30px 22px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .carta p {
+                font-size: 15px;
+            }
+
+            .carta .frase {
+                font-size: 17px;
+            }
+
+            .corazon {
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CORAZONES DECORATIVOS -->
+    <div class="corazon corazon1">❤️</div>
+    <div class="corazon corazon2">💗</div>
+    <div class="corazon corazon3">💕</div>
+    <div class="corazon corazon4">💖</div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenedor">
+
+        <p class="etiqueta">✦ UNA DEDICATORIA ESPECIAL ✦</p>
+
+        <h1>Para ti ❤️</h1>
+
+        <div class="separador">
+            <span>♡</span>
+        </div>
+
+        <section class="carta">
+
+            <h2>Hay personas que hacen la diferencia...</h2>
+
+            <p>
+                No sé si te lo digo lo suficiente,
+                pero hay algo en ti que hace que
+                los días tengan un poquito más de magia.
+            </p>
+
+            <p>
+                A veces no hacen falta grandes palabras,
+                regalos costosos ni momentos perfectos.
+                A veces basta con una persona que,
+                simplemente siendo ella misma,
+                logra hacerte sentir algo bonito.
+            </p>
+
+            <p>
+                Y hoy quería recordarte que eres
+                alguien especial. Que tu existencia
+                importa y que hay cosas de ti que
+                merecen ser apreciadas todos los días.
+            </p>
+
+            <p class="frase">
+                "Si la vida es un viaje,
+                qué bonito coincidir contigo
+                en este pedacito de camino."
+            </p>
+
+            <div class="firma">
+                Con cariño, para ti. ❤️
+            </div>
+
+        </section>
+
+        <!-- BOTÓN DE SORPRESA -->
+        <button class="boton" onclick="mostrarSorpresa()">
+            Toca aquí para una sorpresa 💌
+        </button>
+
+        <p id="sorpresa" class="sorpresa">
+            Si pudiera regalarte algo,
+            te regalaría la oportunidad de verte
+            con los mismos ojos con los que te veo yo. ❤️
+        </p>
+
+        <footer>
+            HECHO CON CARIÑO ✨
+        </footer>
+
+    </main>
+
+    <script>
+        function mostrarSorpresa() {
+            const mensaje = document.getElementById("sorpresa");
+
+            mensaje.classList.toggle("visible");
+        }
+    </script>
+
+</body>
+</html>
