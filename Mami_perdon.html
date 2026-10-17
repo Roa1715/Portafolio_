@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi mamá 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 35px 16px;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(
+        135deg,
+        #ffe3ec,
+        #fff0f5,
+        #fce4ec,
+        #f8d7e5
+      );
+      color: #713b50;
+    }
+
+    /* Corazones flotantes */
+    .heart {
+      position: fixed;
+      bottom: -50px;
+      color: #f28cae;
+      font-size: 25px;
+      opacity: 0;
+      pointer-events: none;
+      animation: floatUp 9s linear infinite;
+    }
+
+    .heart:nth-child(1) { left: 8%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 3s; font-size: 18px; }
+    .heart:nth-child(3) { left: 75%; animation-delay: 1s; font-size: 32px; }
+    .heart:nth-child(4) { left: 90%; animation-delay: 5s; }
+    .heart:nth-child(5) { left: 48%; animation-delay: 6s; font-size: 20px; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% { opacity: 0.7; }
+      85% { opacity: 0.7; }
+      100% {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+      }
+    }
+
+    .card {
+      width: 100%;
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+      padding: 38px 28px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      box-shadow: 0 15px 50px rgba(160, 74, 108, 0.16);
+      backdrop-filter: blur(10px);
+      animation: appear 1.2s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .top-heart {
+      font-size: 43px;
+      display: inline-block;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.15); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    h1 {
+      margin: 10px 0 6px;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(48px, 10vw, 72px);
+      color: #d65383;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b77b91;
+      margin-bottom: 25px;
+    }
+
+    .divider {
+      width: 75px;
+      height: 3px;
+      margin: 0 auto 25px;
+      background: #f1a2bc;
+      border-radius: 5px;
+    }
+
+    .message {
+      padding: 24px 20px;
+      background: linear-gradient(145deg, #fff8fa, #fff0f5);
+      border-radius: 20px;
+      border: 1px solid #f9dce6;
+      font-size: 16px;
+      line-height: 2;
+      font-weight: 400;
+      color: #704355;
+      text-align: left;
+    }
+
+    .message::first-letter {
+      color: #d65383;
+    }
+
+    .extra {
+      margin-top: 24px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 29px;
+      color: #d65383;
+      line-height: 1.5;
+    }
+
+    .flowers {
+      margin-top: 18px;
+      font-size: 25px;
+      letter-spacing: 5px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #bd8a9e;
+      letter-spacing: 1px;
+    }
+
+    .love-button {
+      margin-top: 25px;
+      border: none;
+      border-radius: 30px;
+      padding: 13px 25px;
+      background: linear-gradient(135deg, #e96f9b, #d65383);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #e96f9b55;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .love-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px #e96f9b77;
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 22px;
+      padding: 20px;
+      background: #fff0f5;
+      border-radius: 18px;
+      color: #bd4775;
+      font-size: 15px;
+      line-height: 1.8;
+      animation: appear 0.7s ease;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 18px;
+        border-radius: 23px;
+      }
+
+      .message {
+        padding: 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .subtitle {
+        letter-spacing: 2px;
+        font-size: 10px;
+      }
+
+      .extra {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Corazones animados -->
+  <div class="heart">♥</div>
+  <div class="heart">♡</div>
+  <div class="heart">♥</div>
+  <div class="heart">♡</div>
+  <div class="heart">♥</div>
+
+  <main class="card">
+
+    <div class="top-heart">💗</div>
+
+    <h1>Para mi mami</h1>
+
+    <p class="subtitle">Una carta desde mi corazón</p>
+
+    <div class="divider"></div>
+
+    <div class="message">Mami perdón si muchas veces soy así contigo, soy joven y cometo errores, estoy súper agradecido con que me hayas tocado como madre y eres la única persona por la que rezo, perdón si te he herido pero son errores que cometo, te amo perdóname, gracias por el apoyo en cualquier locura mía 🫶🏽.</div>
+
+    <p class="extra">
+      Eres uno de los regalos más bonitos de mi vida. 💕
+    </p>
+
+    <div class="flowers">🌷 💗 🌷</div>
+
+    <button class="love-button" onclick="showSurprise()">
+      Toca aquí, mami 💌
+    </button>
+
+    <div id="surprise">
+      No importa cuántas veces me equivoque, siempre voy a agradecer
+      tenerte como mamá. Te mereces todo el amor del mundo.
+      <br><br>
+      <strong>Te amo muchísimo, mami. 💖🫶🏽</strong>
+    </div>
+
+    <p class="footer">
+      HECHO CON TODO MI AMOR ♡
+    </p>
+
+  </main>
+
+  <script>
+    function showSurprise() {
+      const surprise = document.getElementById("surprise");
+
+      if (surprise.style.display === "block") {
+        surprise.style.display = "none";
+      } else {
+        surprise.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
